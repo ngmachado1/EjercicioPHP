@@ -8,7 +8,6 @@ if(!isset($_REQUEST['c']))
 {
     require_once "controller/$controller.controller.php";
     $controller = ucwords($controller) . 'Controller';
-    var_dump($controller);
     $controller = new $controller;
     $controller->Index();    
 }

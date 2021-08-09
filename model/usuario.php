@@ -9,6 +9,7 @@ class usuario
     public $Nombre;
     public $Apellido;
     public $Correo;
+    public $Pass;
 
     public function __CONSTRUCT()
     {
@@ -22,14 +23,19 @@ class usuario
     public function Crear(usuario $data)
     {
         try {
-            $sql = "INSERT INTO usuario (Nombre, Apellido, Correo) VALUES (?,?,?)";
+            // if(isset($_POST["Pass"])){
+            //     if(isset($data->Pass)){
+            //     $pass = password_hash("$data->Pass", PASSWORD_BCRYPT);
+            // }
+            $sql = "INSERT INTO usuario (Nombre, Apellido, Correo, Pass) VALUES (?,?,?,?)";
             $this->conexionPDO->prepare($sql)
                 ->execute(
-                array(
+                [
                     $data->Nombre,
                     $data->Apellido,
-                    $data->Correo
-                    )
+                    $data->Correo,
+                    $data->Pass,
+                ]
                 );
         } catch (Exception $e) 
         {
@@ -58,7 +64,8 @@ class usuario
             $sql = "UPDATE  usuario SET 
                             Nombre = ?, 
                             Apellido = ?,
-                            Correo = ?,				
+                            Correo = ?,
+                            Pass = ?			
                     WHERE id = ?";
 
             $this->conexionPDO->prepare($sql)
@@ -67,6 +74,7 @@ class usuario
                         $data->Nombre,
                         $data->Apellido,
                         $data->Correo,
+                        $data->Pass,
                         $data->id
                     )
                 );

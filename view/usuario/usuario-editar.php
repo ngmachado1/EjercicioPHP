@@ -22,6 +22,10 @@
         <label>Correo</label>
         <input type="text" name="Correo" value="<?php echo $usuario->Correo; ?>" class="form-control" placeholder="Ingrese su correo electrónico" required>
     </div>
+    <div class="form-group">
+        <label>Contraseña</label>
+        <input type="password" name="Pass" value="<?php echo $usuario->Pass; ?>" class="form-control" placeholder="Ingrese su contraseña" required>
+    </div>
             
     <div class="text-right">
         <button class="btn btn-primary">Guardar</button>
