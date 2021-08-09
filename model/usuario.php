@@ -1,27 +1,16 @@
 <?php
 
-class DB
-{
-    public static function conexion()
-    {
-        $host = "localhost";
-        $nombre_db = "database";
-        $usuario = "root";
-        $contraseña = "suizoargentina";
-
-        $conexionPDO = new PDO('mysql:host=' . $host . ';dbname=' . $nombre_db . ';charset=utf8', $usuario, $contraseña);
-        return $conexionPDO;
-    }
-}
 
 class usuario
 {
+    private $conexionPDO;
+
     public $id;
     public $Nombre;
     public $Apellido;
     public $Correo;
 
-    public function __construct()
+    public function __CONSTRUCT()
     {
         try {
             $this->conexionPDO = DB::conexion();
@@ -29,18 +18,21 @@ class usuario
             die($e->getMessage());
         }
     }
+
     public function Crear(usuario $data)
     {
         try {
-            $sql = "INSERT INTO usuario (Nombre, Apellido, Correo) VALUES (?,?,?,?)";
-            $this->conexionPDO->prepare($sql)->execute(
-                [
+            $sql = "INSERT INTO usuario (Nombre, Apellido, Correo) VALUES (?,?,?)";
+            $this->conexionPDO->prepare($sql)
+                ->execute(
+                array(
                     $data->Nombre,
                     $data->Apellido,
                     $data->Correo
-                ]
-            );
-        } catch (Exception $e) {
+                    )
+                );
+        } catch (Exception $e) 
+        {
             die($e->getMessage());
         }
     }
@@ -53,18 +45,21 @@ class usuario
             $stm->execute();
 
             return $stm->fetchAll(PDO::FETCH_OBJ);
-        } catch (Exception $e) {
+        } 
+        catch (Exception $e) 
+        {
             die($e->getMessage());
         }
     }
-    public function update($data)
+
+    public function Actualizar($data)
     {
         try {
             $sql = "UPDATE  usuario SET 
                             Nombre = ?, 
                             Apellido = ?,
                             Correo = ?,				
-				    WHERE   id = ?";
+                    WHERE id = ?";
 
             $this->conexionPDO->prepare($sql)
                 ->execute(
@@ -80,15 +75,26 @@ class usuario
         }
     }
     public function Eliminar($id)
-	{
-		try 
-		{
-			$stm = $this->conexionPDO
-			            ->prepare("DELETE FROM usuario WHERE id = ?");
-			$stm->execute(array($id));
-		} catch (Exception $e) 
-		{
-			die($e->getMessage());
-		}
-	}
+    {
+        try {
+            $stm = $this->conexionPDO
+                ->prepare("DELETE FROM usuario WHERE id = ?");
+            $stm->execute(array($id));
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+    public function Obtener($id)
+    {
+        try {
+            $stm = $this->conexionPDO
+                ->prepare("SELECT * FROM usuario WHERE id = ?");
+
+
+            $stm->execute(array($id));
+            return $stm->fetch(PDO::FETCH_OBJ);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
 }
