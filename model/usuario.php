@@ -23,20 +23,31 @@ class usuario
     public function Crear(usuario $data)
     {
         try {
-            // if(isset($_POST["Pass"])){
-            //     if(isset($data->Pass)){
-            //     $pass = password_hash("$data->Pass", PASSWORD_BCRYPT);
-            // }
-            $sql = "INSERT INTO usuario (Nombre, Apellido, Correo, Pass) VALUES (?,?,?,?)";
-            $this->conexionPDO->prepare($sql)
-                ->execute(
-                [
-                    $data->Nombre,
-                    $data->Apellido,
-                    $data->Correo,
-                    $data->Pass,
-                ]
-                );
+            //buscar usuario en la base de datos?
+            $stm = $this->conexionPDO->prepare("SELECT * FROM usuario WHERE Correo = :correo");
+            $stm->execute([
+                ":correo" => $data->Correo,
+            ]);
+            //el usuario ya existe?
+            $arr = $stm->fetchAll(PDO::FETCH_ASSOC);
+            var_dump($arr);
+            if (isset($arr[0]["Correo"])){
+                $_SESSION["err"] = "usuario ya existe";
+
+            }else{
+                // registrar usuario en base de datos
+                $sql = "INSERT INTO usuario (Nombre, Apellido, Correo, Pass) VALUES (?,?,?,?)";
+                $this->conexionPDO->prepare($sql)
+                    ->execute(
+                    [
+                        $data->Nombre,
+                        $data->Apellido,
+                        $data->Correo,
+                        $data->Pass,
+                    ]
+                    );
+            }
+
         } catch (Exception $e) 
         {
             die($e->getMessage());

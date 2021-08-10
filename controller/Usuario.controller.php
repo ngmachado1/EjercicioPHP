@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'model/usuario.php';
 require_once 'model/login.php';
 class usuarioController{
@@ -11,7 +12,12 @@ class usuarioController{
     
     public function Index(){
         require_once 'view/header.php';
-        require_once 'view/usuario/usuario-login.php';
+ 
+        if(isset($_SESSION["Correo"])){
+            require_once 'view/usuario/usuario.php';
+        }else{
+            require_once 'view/usuario/usuario-login.php';
+        }
        
     }
     public function Login(){
@@ -20,8 +26,7 @@ class usuarioController{
             $validar = new Login();
             $validar->ValidarDatos($_REQUEST["Correo"], $_REQUEST["Pass"]);
             if (isset($_SESSION["Correo"])){
-                require_once 'view/usuario/usuario.php';
-
+                header('Location: index.php');
             }
             
         } else {
@@ -29,6 +34,16 @@ class usuarioController{
            die;
         }
     }
+    public function Logout(){
+        if (isset($_SESSION["Correo"])){
+
+            $_SESSION = [];
+
+            session_destroy();
+        }
+        header('Location: index.php');
+    }
+
     public function Crud(){
         $usuario = new usuario();
         

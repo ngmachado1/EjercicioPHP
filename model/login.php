@@ -17,7 +17,6 @@ class Login
 
     public function ValidarDatos($Correo, $Pass)
     {
-
         try {
             // Consulta
             $sql = "SELECT * FROM usuario WHERE Correo = :correo";
@@ -26,24 +25,18 @@ class Login
             $stm->execute([
                 ":correo" => $Correo
             ]);
-            foreach ($stm as $key => $value) {
-               $password = $value["Pass"];
-            }
-            if (password_verify($Pass, $password)) {
-                $cantidad_resultado = $stm->fetchColumn();
-                session_start();
-                if ($cantidad_resultado == "1") {                
+
+            $arr = $stm->fetchAll(PDO::FETCH_ASSOC);
+            if (isset($arr[0]["Pass"])) {
+                $password = $arr[0]["Pass"];
+
+                if (password_verify($Pass, $password)) {
                     $_SESSION["Correo"] = $Correo;
                     $_SESSION["Pass"] = $Pass;
-                    
-                } else {
-                    $_SESSION["error"] = "ERROR";
                 }
-    
-            }else{
+            } else {
                 print_r("contraseña incorrecta");
             }
-            
         } catch (Exception $e) {
             die($e->getMessage());
         }
