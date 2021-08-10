@@ -1,4 +1,4 @@
-<h2>Hola! <?= $_SESSION['Correo']; ?></h2>
+﻿<h2>Hola! <?= $_SESSION['Correo']; ?></h2>
 
     <a class="btn btn-primary pull-right" href="?c=usuario&a=Crud">Agregar</a>
 <br><br><br>

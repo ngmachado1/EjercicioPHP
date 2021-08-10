@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 session_start();
 require_once 'model/usuario.php';
 require_once 'model/login.php';

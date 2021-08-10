@@ -1,4 +1,4 @@
-<h1 class="page-header">
+﻿<h1 class="page-header">
     <?php echo $usuario->id != null ? $usuario->Nombre : 'Nuevo Registro'; ?>
 </h1>
 
