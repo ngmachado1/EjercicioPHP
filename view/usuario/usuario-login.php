@@ -1,6 +1,8 @@
-﻿<div class="container">
+﻿<div class="container bg-color">
+</div>
+<div class="box-sesion">
+    <div class="width-75">
 
-    <div class="box-sesion">
         <h1>
             Iniciar sesion
         </h1>
@@ -15,11 +17,10 @@
             </div>
             <div class="form-control">
                 <label>Contraseña</label>
-                <input type="password" name="Pass" class="input-form" placeholder="Ingrese su correo electrónico" required>
-                <div class="form-control">
-                <button type="submit">Iniciar sesion</button>
+                <input type="password" name="Pass" class="input-form" placeholder="Ingrese su contraseña" required>
+                <button class="mt-5 btn btn-primary" type="submit">Iniciar sesión</button>
+            </div>
         </form>
-        <a href="?c=usuario&a=Crud">Registrarse</a>
-
+        <a href="?c=usuario&a=Crud" class="btn btn-secondary">Crear cuenta</a>
     </div>
 </div>

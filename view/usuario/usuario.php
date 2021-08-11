@@ -1,7 +1,5 @@
 ﻿<h2>Hola! <?= $_SESSION['Correo']; ?></h2>
 
-    <a class="btn btn-primary pull-right" href="?c=usuario&a=Crud">Agregar</a>
-<br><br><br>
 
 <table class="table  table-striped  table-hover" id="tabla">
     <thead>
@@ -15,7 +13,7 @@
     <tbody>
     <?php foreach($this->model->Listar() as $r): ?>
         <tr>
-            <td><?= $r->id; echo "-" .$r->Nombre; ?></td>
+            <td><?= $r->id . "-" . $r->Nombre; ?></td>
             <td><?= $r->Apellido; ?></td>
             <td><?= $r->Correo; ?></td>
             <td>
@@ -25,8 +23,9 @@
         </tr>
     <?php endforeach; ?>
     </tbody>
-</table> 
-<a href="?c=usuario&a=Logout" class="button">salir</a>
+</table>     
+<a class="btn btn-primary" href="?c=usuario&a=Crud">Agregar</a>
+<a href="?c=usuario&a=Logout" class="btn btn-secondary">salir</a>
 </body>
 
 </script>
