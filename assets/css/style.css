@@ -105,7 +105,7 @@ section {
 }
 body {
     line-height: 1;
-    background-color: #EDEDED;
+    background-color: #ededed;
 }
 ol,
 ul {
@@ -134,8 +134,8 @@ table {
     top: 0px;
     width: 100%;
     height: 400px;
-    /* background: transparent linear-gradient(180deg, #33dbdb 0%, #01faa8 100%) 0% 0% no-repeat padding-box; */
-    background: transparent linear-gradient(180deg, #0b406a 0%, #0b406a 100%) 0% 0% no-repeat padding-box;
+    background: transparent linear-gradient(180deg, #33dbdb 0%, #01faa8 100%) 0% 0% no-repeat padding-box;
+    /* background: transparent linear-gradient(180deg, #0b406a 0%, #0b406a 100%) 0% 0% no-repeat padding-box; */
 }
 .mt-5 {
     margin-top: 2.5em !important;
@@ -148,17 +148,20 @@ table {
 .box-sesion {
     position: absolute;
     top: 200px;
-    left: 37.5%;
+    left: 0;
+    right: 0;
+    margin: auto;
     width: 25%;
+    min-width: 350px;
     background: var(--color_background_1) 0% 0% no-repeat padding-box;
     background: #ffffff 0% 0% no-repeat padding-box;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     border-radius: 8px;
-    padding-bottom: 2rem;
+    padding-bottom: 2em;
 }
 .box-sesion h1 {
-    padding-top: 1rem;
-    font-size: 2.5rem;
+    padding-top: 1em;
+    font-size: 2.5em;
     font-weight: 600;
     text-align: center;
     letter-spacing: 0px;
@@ -167,7 +170,7 @@ table {
 .input-form {
     width: 100%;
     margin-top: 5px;
-    font-size: 1.2rem;
+    font-size: 1.2em;
     padding: 10px 5px;
     border-radius: 4px;
     border: 1px solid #dddddd;
@@ -183,13 +186,12 @@ div.form-control label {
 }
 
 .btn {
-    cursor:pointer;
+    cursor: pointer;
     border-radius: 4px;
     width: 100%;
     max-width: 400px;
     padding: 10px 0px;
-    margin: 1em 0px;
-    font-size: 1.2rem;
+    font-size: 1.2em;
     display: block;
     text-align: center;
     border: none;
@@ -199,10 +201,12 @@ div.form-control label {
 .btn-primary {
     background: #01d2d2;
     color: #fff;
+    margin: 1em 0px;
 }
 .btn-secondary {
     background: #fff;
     color: #01d2d2;
+    margin: 1em 0px;
 }
 .btn-warning {
     background: #fff;
@@ -212,12 +216,132 @@ div.form-control label {
     background: #fff;
     color: #d20101;
 }
+.center {
+    display: block;
+    margin: auto;
+    max-width: 350px;
+}
 
-.box {
+/* .box {
     width: 1270px;
     padding: 20px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-top: 25px;
+} */
+table {
+    width: 80%;
+    font-family: "Lato";
+    margin: 25px auto;
+    border-collapse: collapse;
+    border: 1px solid #eee;
+    border-bottom: 2px solid #01d2d2;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.2) 0px 8px 16px -8px;
 }
+.d-flex {
+    display: flex;
+}
+table tr {
+    background: #f4f4f4;
+}
+table tr:hover td {
+    color: rgb(56, 56, 56);
+}
+table th,
+table td {
+    color: rgb(112, 112, 112);
+    border: 1px solid #eee;
+    padding: 12px 35px;
+    border-collapse: collapse;
+}
+table th {
+    background: #01d2d2;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1em;
+}
+table th.last {
+    border-right: none;
+}
+
+@media only screen and (min-width: 760px) {
+    .table {
+        border-collapse: separate;
+    }
+    .table thead {
+        display: table-header-group;
+    }
+    .table tbody tr:nth-of-type(even) {
+        background: #f9f9f9;
+    }
+    .table tbody td {
+        display: table-cell;
+    }
+    .table tbody td:before {
+        content: "";
+        width: 0;
+    }
+}
+
+/* .rwd-table {
+    margin: 1em auto;
+    min-width: 300px;
+    width: 60%;
+    background: #4d4d4d;
+    color: #ffffff;
+    border-radius: 0.4em;
+    overflow: hidden;
+}
+
+.rwd-table th {
+    display: none;
+    background-color: #01d2d2;
+}
+.rwd-table td {
+    display: block;
+}
+.rwd-table td:first-child {
+    padding-top: 0.5em;
+}
+.rwd-table td:last-child {
+    padding-bottom: 0.5em;
+}
+.rwd-table td:before {
+    content: attr(data-th) ": ";
+    font-weight: bold;
+    width: 6.5em;
+    display: inline-block;
+}
+
+.rwd-table th,
+.rwd-table td {
+    text-align: left;
+    margin: 0.5em 1em;
+}
+
+.rwd-table th,
+.rwd-table td:before {
+    color: #ffffff;
+    font-weight: 800;
+}
+
+@media (min-width: 480px) {
+    .rwd-table td:before {
+        display: none;
+    }
+    .rwd-table th,
+    .rwd-table td {
+        display: table-cell;
+        padding: 0.25em 0.5em;
+        padding: 1em !important;
+    }
+    .rwd-table th:first-child,
+    .rwd-table td:first-child {
+        padding-left: 0;
+    }
+    .rwd-table th:last-child,
+    .rwd-table td:last-child {
+        padding-right: 0;
+    }
+} */
