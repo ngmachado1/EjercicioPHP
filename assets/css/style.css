@@ -145,14 +145,24 @@ table {
     display: block;
     margin: auto;
 }
+.width-25{
+    max-width: 500px;
+    width: 25%;
+    min-width: 350px;
+    top: 200px;
+
+}
+.width-80{
+    width: 80%;
+    top: 150px;
+    min-width: 350px;
+}
 .box-sesion {
     position: absolute;
-    top: 200px;
     left: 0;
     right: 0;
     margin: auto;
-    width: 25%;
-    min-width: 350px;
+
     background: var(--color_background_1) 0% 0% no-repeat padding-box;
     background: #ffffff 0% 0% no-repeat padding-box;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
@@ -184,7 +194,21 @@ div.form-control label {
     font-size: 1.2em;
     color: #46484b;
 }
-
+.m4{
+    margin: auto 10%
+}
+.btn2 {
+    cursor: pointer;
+    border-radius: 4px;
+    width: 150px;
+    padding: 15px 0px;
+    font-size: 1.2em;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    text-decoration: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px 0px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
 .btn {
     cursor: pointer;
     border-radius: 4px;
@@ -208,12 +232,13 @@ div.form-control label {
     color: #01d2d2;
     margin: 1em 0px;
 }
-.btn-warning {
-    background: #fff;
+.btn-warning, .btn-danger{
+    color: #616161; 
+}
+.btn-warning:hover {
     color: rgb(233, 140, 0);
 }
-.btn-danger {
-    background: #fff;
+.btn-danger:hover {
     color: #d20101;
 }
 .center {
@@ -221,7 +246,11 @@ div.form-control label {
     margin: auto;
     max-width: 350px;
 }
-
+.right{
+    display: block;
+    max-width: 350px;
+    margin: auto 5% auto auto;
+}
 /* .box {
     width: 1270px;
     padding: 20px;

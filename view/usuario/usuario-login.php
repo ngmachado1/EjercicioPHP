@@ -1,6 +1,6 @@
 ﻿<div class="container bg-color">
 </div>
-<div class="box-sesion">
+<div class="box-sesion width-25">
     <div class="width-75">
 
         <h1>

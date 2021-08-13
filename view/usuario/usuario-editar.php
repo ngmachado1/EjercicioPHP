@@ -1,17 +1,8 @@
 ﻿<div class="container bg-color">
-    <h1 class="page-header">
-        page-header -> <?php echo $usuario->id != null ? $usuario->Nombre : 'Nuevo Registro'; ?>
-    </h1>
-
-    <ol class="breadcrumb">
-        <li><a href="?c=usuario">Usuarios</a></li>
-        <li class="active"><?php echo $usuario->id != null ? $usuario->Nombre : 'Nuevo Registro'; ?></li>
-    </ol>
-
 </div>
 
 
-<div class="box-sesion">
+<div class="box-sesion width-25">
     <div class="width-75">
         <h1>
             <?= $usuario->id != null ?  "Editar Registro" : "Nuevo Registro" ?>
