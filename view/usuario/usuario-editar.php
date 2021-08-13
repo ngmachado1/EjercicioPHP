@@ -7,23 +7,23 @@
         <h1>
             <?= $usuario->id != null ?  "Editar Registro" : "Nuevo Registro" ?>
         </h1>
-        <form action="?c=usuario&a=Guardar" method="post" enctype="multipart/form-data">
+        <form action="?c=usuario&a=Guardar" method="post" id="formulario-reg" enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?php echo $usuario->id; ?>" />
             <div class="form-control">
                 <label>Nombre</label>
-                <input type="text" class="input-form" name="Nombre" value="<?php echo $usuario->Nombre; ?>" class="form-control" placeholder="Ingrese su nombre" required>
+                <input type="text" class="input-form" id="nombre" name="Nombre" value="<?php echo $usuario->Nombre; ?>" class="form-control" placeholder="Ingrese su nombre">
             </div>
             <div class="form-control">
                 <label>Apellido</label>
-                <input type="text" class="input-form" name="Apellido" value="<?php echo $usuario->Apellido; ?>" class="form-control" placeholder="Ingrese su apellido" required>
+                <input type="text" class="input-form" id="apellido" name="Apellido" value="<?php echo $usuario->Apellido; ?>" class="form-control" placeholder="Ingrese su apellido">
             </div>
             <div class="form-control">
                 <label>Correo</label>
-                <input type="text" class="input-form" name="Correo" value="<?php echo $usuario->Correo; ?>" class="form-control" placeholder="Ingrese su correo electrónico" required>
+                <input type="text" class="input-form" id="correo" name="Correo" value="<?php echo $usuario->Correo; ?>" class="form-control" placeholder="Ingrese su correo electrónico">
             </div>
             <div class="form-control">
                 <label>Contraseña</label>
-                <input type="password" class="input-form" name="Pass" value="<?php echo $usuario->Pass; ?>" class="form-control" placeholder="Ingrese su contraseña" required>
+                <input type="password" class="input-form" id="pass" name="Pass" value="<?php echo $usuario->Pass; ?>" class="form-control" placeholder="Ingrese su contraseña">
             </div>
             <?= $usuario->id != null ?  
             '<button class="mt-5 btn btn-primary" type="submit">Guardar</button>' : 
@@ -35,6 +35,6 @@
     </div>
 </div>
 
-<script>
+</body>
 
-</script>
+</html>

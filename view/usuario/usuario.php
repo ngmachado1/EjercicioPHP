@@ -35,7 +35,6 @@
 </div>
 </body>
 
-</script>
 
 
 </html>
