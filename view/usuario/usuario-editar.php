@@ -1,7 +1,5 @@
 ﻿<div class="container bg-color">
 </div>
-
-
 <div class="box-sesion width-25">
     <div class="width-75">
         <h1>
@@ -12,18 +10,22 @@
             <div class="form-control">
                 <label>Nombre</label>
                 <input type="text" class="input-form" id="nombre" name="Nombre" value="<?php echo $usuario->Nombre; ?>" class="form-control" placeholder="Ingrese su nombre">
+                <span class="nombreError error"></span>
             </div>
             <div class="form-control">
                 <label>Apellido</label>
                 <input type="text" class="input-form" id="apellido" name="Apellido" value="<?php echo $usuario->Apellido; ?>" class="form-control" placeholder="Ingrese su apellido">
+                <span class="apellidoError error"></span>
             </div>
             <div class="form-control">
                 <label>Correo</label>
                 <input type="text" class="input-form" id="correo" name="Correo" value="<?php echo $usuario->Correo; ?>" class="form-control" placeholder="Ingrese su correo electrónico">
+                <span class="correoError error"></span>
             </div>
             <div class="form-control">
                 <label>Contraseña</label>
                 <input type="password" class="input-form" id="pass" name="Pass" value="<?php echo $usuario->Pass; ?>" class="form-control" placeholder="Ingrese su contraseña">
+                <span class="passError error"></span>
             </div>
             <?= $usuario->id != null ?  
             '<button class="mt-5 btn btn-primary" type="submit">Guardar</button>' : 

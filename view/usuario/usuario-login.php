@@ -10,14 +10,16 @@
             if (isset($_SESSION['err'])) {
                 echo $_SESSION['err'];
             }; ?></h2>
-        <form action="?c=usuario&a=Login" method="post" enctype="multipart/form-data">
+        <form action="?c=usuario&a=Login" method="post" enctype="multipart/form-data" id="formulario-login">
             <div class="form-control">
                 <label>Correo</label>
-                <input type="text" name="Correo" class="input-form" placeholder="Ingrese su correo electrónico" required>
+                <input type="text" name="Correo" id="correo" class="input-form" placeholder="Ingrese su correo electrónico">
+                <span class="correoError error"></span>
             </div>
             <div class="form-control">
                 <label>Contraseña</label>
-                <input type="password" name="Pass" class="input-form" placeholder="Ingrese su contraseña" required>
+                <input type="password" name="Pass" id="pass" class="input-form" placeholder="Ingrese su contraseña">
+                <span class="passError error"></span>
                 <button class="mt-5 btn btn-primary" type="submit">Iniciar sesión</button>
             </div>
         </form>

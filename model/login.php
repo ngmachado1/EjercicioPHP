@@ -35,7 +35,7 @@ class Login
                     $_SESSION["Pass"] = $Pass;
                 }
             } else {
-                print_r("contraseña incorrecta");
+                print_r("por favor, ingrese un usuario y contraseña validos");
             }
         } catch (Exception $e) {
             die($e->getMessage());
